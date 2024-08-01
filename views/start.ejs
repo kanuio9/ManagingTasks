@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container"> https://github.com/kanuio9/ManagingTasks.git
+        <h1>Welcome to Task Manager!</h1>
+        <p>Managing your tasks.. Click below to start!</p>
+        <form method="GET" action="http://localhost:3000/tasks">
+            <button type="submit">Start</button>
+        </form>
+    </div>
+    <div class="loader" id="loader" style="display:none;"></div>
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementById('loader').style.display = 'none';
+        });
+
+        window.addEventListener('beforeunload', function() {
+            document.getElementById('loader').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

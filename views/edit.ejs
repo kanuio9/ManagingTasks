@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Task - <%=task.task%></h2>
+        <form method="POST" action="http://localhost:3000/tasks/<%=task.id%>/edit?_method=PUT">
+            <h4>Task name - 
+                <textarea name="task"><%=task.task%></textarea>    
+            </h4>
+            <h4>Time limit - 
+                <textarea name="timeLimit"><%=task.timeLimit%></textarea>    
+            </h4>
+            <h4>Priority - 
+                <textarea name="priority"><%=task.priority%></textarea>    
+            </h4>
+            <h4>Category - 
+                <textarea name="category"><%=task.category%></textarea>    
+            </h4>
+            <button>Edit</button>
+        </form>
+    </div>
+</body>
+</html>

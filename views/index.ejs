@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tasks</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>All Tasks</h1>
+        <a class="back-button" href="http://localhost:3000/">Back to Home</a>
+        <a href="http://localhost:3000/tasks/new">Create a New Task</a>
+        <% let i = 1 %>
+        <% for(task of tasks) { %>
+            <h2><%=i%>. <%=task.task%></h2>
+            <div>
+                <p>Time Limit - <%=task.timeLimit%></p> 
+                <p>Priority - <%=task.priority%></p> 
+                <p>Category - <%=task.category%></p> 
+            </div>
+            <div>
+                <span>
+                    <form method="GET" action="http://localhost:3000/tasks/view/<%=task.id%>">
+                        <button type="submit">View in Detail</button>
+                    </form>
+                </span>
+                <span>
+                    <form method="POST" action="http://localhost:3000/tasks/<%=task.id%>?_method=DELETE">
+                        <button type="submit">Remove</button>
+                    </form>
+                </span>
+                <span>
+                    <form method="GET" action="http://localhost:3000/tasks/<%=task.id%>/edit">
+                        <button type="submit">Edit</button>
+                    </form>
+                </span>
+            </div>
+            <% i++;%>
+        <% } %>
+    </div>
+    <div class="loader" id="loader" style="display:none;"></div>
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementById('loader').style.display = 'none';
+        });
+
+        window.addEventListener('beforeunload', function() {
+            document.getElementById('loader').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
